@@ -35,7 +35,15 @@
 7. Dataset 名称输入 `production`。
 8. Dataset 可见性选择“Public”。这里只存放准备公开的官网宣传内容，不放任何客户或候选人资料。
 9. 完成创建。
-10. 打开项目设置，找到“Project ID”。复制这串短文字并保存。Project ID 可以公开，但不要随意修改。
+10. 打开项目设置，找到“Project ID”。本项目的 Project ID 是 `2do2fcr6`。Project ID 可以公开，但不要随意修改。
+
+### 允许官网后台访问 Sanity
+
+1. 在 Sanity 项目设置中点击“API”。
+2. 找到“CORS origins”，点击“Add CORS origin”。
+3. Origin 输入 `https://link-hr.work`。
+4. 勾选“Allow credentials”。
+5. 点击“Save”。
 
 ### 添加管理员
 
@@ -73,12 +81,12 @@ Environment Variables 是网站使用但不应写进公开代码的设置。
 
 `NEXT_PUBLIC_SITE_URL`
 
-- Value 输入：`https://link-hr.com`
+- Value 输入：`https://link-hr.work`
 - 用途：告诉网站正式域名。
 
 `NEXT_PUBLIC_SANITY_PROJECT_ID`
 
-- Value 粘贴 Sanity 项目设置中的 Project ID。
+- Value 输入：`2do2fcr6`
 - Project ID 本身不是密码。
 
 `NEXT_PUBLIC_SANITY_DATASET`
@@ -105,7 +113,7 @@ Environment Variables 是网站使用但不应写进公开代码的设置。
 `CONTACT_FROM_EMAIL`
 
 - 第一次测试可以输入：`LINK-HR 官网 <onboarding@resend.dev>`
-- 完成 Resend 域名验证后，建议改为：`LINK-HR 官网 <website@link-hr.com>`
+- 完成 Resend 域名验证后，建议改为：`LINK-HR 官网 <website@link-hr.work>`
 
 所有变量的环境范围请选择 Production、Preview、Development 三项，或选择“All Environments”。
 
@@ -131,7 +139,7 @@ Environment Variables 是网站使用但不应写进公开代码的设置。
 3. 点击“API”。
 4. 找到“Webhooks”，点击“Create webhook”。
 5. Name 输入 `更新 LINK-HR 官网`。
-6. URL 输入：`https://link-hr.com/api/revalidate?secret=你在Vercel中设置的SANITY_REVALIDATE_SECRET`
+6. URL 输入：`https://link-hr.work/api/revalidate?secret=你在Vercel中设置的SANITY_REVALIDATE_SECRET`
 7. Dataset 选择 `production`。
 8. Trigger on 选择 Create、Update、Delete。
 9. Projection 保持空白。
@@ -144,7 +152,7 @@ Environment Variables 是网站使用但不应写进公开代码的设置。
 1. 打开 [Resend](https://resend.com) 并登录或注册。
 2. 点击左侧“Domains”。
 3. 点击“Add Domain”。
-4. 输入 `link-hr.com`。
+4. 输入 `link-hr.work`。
 5. Resend 会显示需要添加的 DNS 记录。
 6. 不要自己猜 DNS 数值，逐条复制 Resend 当前页面显示的 Type、Name 和 Value。
 7. DNS 添加方法见下一章。
@@ -152,10 +160,10 @@ Environment Variables 是网站使用但不应写进公开代码的设置。
 9. 点击“Create API Key”。
 10. 名称输入 `LINK-HR Website`，权限只选择发送邮件需要的权限。
 11. 点击创建后，密钥通常只显示一次。复制并立即粘贴到 Vercel 的 `RESEND_API_KEY`。
-12. 回到 Vercel，把 `CONTACT_FROM_EMAIL` 改成 `LINK-HR 官网 <website@link-hr.com>`。
+12. 回到 Vercel，把 `CONTACT_FROM_EMAIL` 改成 `LINK-HR 官网 <website@link-hr.work>`。
 13. 在 Vercel 的“Deployments”中打开最新部署右侧菜单，点击“Redeploy”。
 
-## 九、绑定 link-hr.com 域名
+## 九、绑定 link-hr.work 域名
 
 ### 在 Vercel 添加域名
 
@@ -163,8 +171,8 @@ Environment Variables 是网站使用但不应写进公开代码的设置。
 2. 点击 `link-hr` 项目。
 3. 点击顶部“Settings”。
 4. 点击左侧“Domains”。
-5. 输入 `link-hr.com`，点击“Add”。
-6. 再输入 `www.link-hr.com`，点击“Add”。
+5. 输入 `link-hr.work`，点击“Add”。
+6. 再输入 `www.link-hr.work`，点击“Add”。
 7. Vercel 会显示需要添加的 DNS 记录。
 
 重要：不要自己猜 DNS 数值，复制 Vercel 当前页面显示的 Type、Name 和 Value。Vercel 可能根据账号和时间给出不同值。
@@ -174,10 +182,10 @@ Environment Variables 是网站使用但不应写进公开代码的设置。
 你在阿里云购买了域名，可以按下面的方式操作：
 
 1. 打开 [阿里云控制台](https://home.console.aliyun.com)。
-2. 使用购买 `link-hr.com` 时的账号登录。
+2. 使用购买 `link-hr.work` 时的账号登录。
 3. 在顶部搜索框搜索“域名”。
 4. 点击“域名”进入域名列表。
-5. 找到 `link-hr.com`，点击右侧“解析”。
+5. 找到 `link-hr.work`，点击右侧“解析”。
 6. 点击“添加 DNS 记录”或“添加记录”。
 7. 回到 Vercel 的 Domains 页面。
 8. 按 Vercel 当前显示的内容逐项复制：
@@ -193,22 +201,22 @@ Environment Variables 是网站使用但不应写进公开代码的设置。
 
 ## 十、设置主域名和 www
 
-建议把 `link-hr.com` 设为主域名，让 `www.link-hr.com` 自动跳转到它。
+建议把 `link-hr.work` 设为主域名，让 `www.link-hr.work` 自动跳转到它。
 
 1. 在 Vercel 项目打开 Settings → Domains。
-2. 找到 `link-hr.com`，打开右侧菜单。
+2. 找到 `link-hr.work`，打开右侧菜单。
 3. 选择“Set as Primary”或类似选项。
-4. 找到 `www.link-hr.com`。
-5. 如果页面提供 Redirect，选择重定向到 `link-hr.com`。
+4. 找到 `www.link-hr.work`。
+5. 如果页面提供 Redirect，选择重定向到 `link-hr.work`。
 6. 保存。
 
 ## 十一、确认 HTTPS
 
 1. 等待 Vercel 的两个域名都显示配置正确。
-2. 打开 `https://link-hr.com`。
+2. 打开 `https://link-hr.work`。
 3. 看浏览器地址栏是否有锁形图标，或地址是否以 `https://` 开头。
-4. 再打开 `http://link-hr.com`，它应该自动跳转到 `https://link-hr.com`。
-5. 打开 `https://www.link-hr.com`，它应该自动跳转到主域名。
+4. 再打开 `http://link-hr.work`，它应该自动跳转到 `https://link-hr.work`。
+5. 打开 `https://www.link-hr.work`，它应该自动跳转到主域名。
 
 Vercel 会自动申请和续期 HTTPS 证书，不需要另外购买证书。
 
@@ -216,7 +224,7 @@ Vercel 会自动申请和续期 HTTPS 证书，不需要另外购买证书。
 
 逐项打开并检查：
 
-- `https://link-hr.com/`
+- `https://link-hr.work/`
 - `/focus`
 - `/approach`
 - `/team`
@@ -234,8 +242,8 @@ Vercel 会自动申请和续期 HTTPS 证书，不需要另外购买证书。
 4. 联系表单可以收到邮件。
 5. 表单失败时会显示清楚的提示，网站不会崩溃。
 6. 后台修改一个字并发布，1 分钟内官网能看到变化。
-7. 搜索 `https://link-hr.com/robots.txt` 可以打开。
-8. 搜索 `https://link-hr.com/sitemap.xml` 可以打开。
+7. 搜索 `https://link-hr.work/robots.txt` 可以打开。
+8. 搜索 `https://link-hr.work/sitemap.xml` 可以打开。
 
 ## 十三、连接 Google Search Console
 
@@ -243,12 +251,12 @@ Vercel 会自动申请和续期 HTTPS 证书，不需要另外购买证书。
 2. 使用 LINK-HR 长期管理的 Google 账号登录。
 3. 点击“添加资源”。
 4. 选择“网域”。
-5. 输入 `link-hr.com`。
+5. 输入 `link-hr.work`。
 6. Google 会显示一条 TXT DNS 记录。
 7. 打开阿里云域名解析，点击“添加记录”。
 8. 按 Google 当前页面显示的 Name 和 Value 原样复制，不要自己猜。
 9. 保存后回到 Google，点击“验证”。
-10. 验证成功后，在“Sitemaps”输入 `https://link-hr.com/sitemap.xml` 并提交。
+10. 验证成功后，在“Sitemaps”输入 `https://link-hr.work/sitemap.xml` 并提交。
 
 ## 十四、环境变量保密表
 

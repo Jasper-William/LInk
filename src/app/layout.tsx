@@ -4,7 +4,7 @@ import { Header } from "@/components/header";
 import "./globals.css";
 import { getSeoContent } from "@/sanity/lib/content";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://link-hr.com";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://link-hr.work";
 
 export async function generateMetadata(): Promise<Metadata> {
   const seo = await getSeoContent();

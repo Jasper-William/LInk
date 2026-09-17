@@ -9,7 +9,7 @@ const singleton = (S: StructureBuilder, title: string, schemaType: string, docum
 
 export default defineConfig({
   name: "link-hr", title: "LINK-HR 官网后台",
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || "replace-me",
+  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || "2do2fcr6",
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || "production",
   basePath: "/admin",
   plugins: [structureTool({ structure: (S) => S.list().title("网站内容").items([

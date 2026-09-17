@@ -5,7 +5,7 @@
 ## 一、进入后台
 
 1. 打开浏览器。
-2. 在地址栏输入 `https://link-hr.com/admin`。
+2. 在地址栏输入 `https://link-hr.work/admin`。
 3. 第一次使用时，页面会显示 Sanity 登录界面。Sanity 就是 LINK-HR 官网的内容后台。
 4. 点击你创建 Sanity 项目时使用的登录方式，例如“使用 Google 登录”或“使用邮箱登录”。
 5. 登录成功后，左侧会看到：
@@ -17,7 +17,7 @@
    - 联系方式
    - SEO 设置
 
-如果登录后看不到这些栏目，不要重新创建项目。先确认浏览器地址是 `link-hr.com/admin`，再联系网站维护人员检查 Sanity Project ID。
+如果登录后看不到这些栏目，不要重新创建项目。先确认浏览器地址是 `link-hr.work/admin`，再联系网站维护人员检查 Sanity Project ID。
 
 ## 二、后台中最重要的两个按钮
 

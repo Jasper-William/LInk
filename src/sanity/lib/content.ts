@@ -21,7 +21,7 @@ export async function getHomepageData() {
     getTeamMembers(),
   ]);
   return {
-    hero: { ...siteCopy.hero, eyebrow: home?.heroEyebrow || siteCopy.hero.eyebrow, title: home?.heroTitle || siteCopy.hero.title, description: home?.heroDescription || siteCopy.hero.description, cta: home?.heroCta || siteCopy.hero.cta, imageUrl: home?.heroImageUrl || "/images/robotic-hand-hero.png" },
+    hero: { ...siteCopy.hero, eyebrow: home?.heroEyebrow || siteCopy.hero.eyebrow, title: home?.heroTitle || siteCopy.hero.title, description: home?.heroDescription || siteCopy.hero.description, cta: home?.heroCta || siteCopy.hero.cta, imageUrl: home?.heroImageUrl || "/images/robotic-hand-hero.jpg" },
     focusIntro: { ...siteCopy.focus, eyebrow: home?.focusEyebrow || siteCopy.focus.eyebrow, title: home?.focusTitle || siteCopy.focus.title, description: home?.focusDescription || siteCopy.focus.description },
     focusAreas: focus?.length ? focus : focusAreas,
     approach: { ...siteCopy.approach, eyebrow: approach?.eyebrow || siteCopy.approach.eyebrow, title: approach?.title || siteCopy.approach.title, description: approach?.description || siteCopy.approach.description, cta: approach?.cta || siteCopy.approach.cta },

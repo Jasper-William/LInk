@@ -10,7 +10,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const seo = await getSeoContent();
   const title = seo?.title || "LINK-HR | 具身智能与机器人高端人才寻访";
   const description = seo?.description || "LINK-HR 专注于具身智能、机器人及人工智能领域的高端人才寻访、Talent Mapping 与人才咨询服务。";
-  const image = seo?.ogImageUrl || "/images/robotic-hand-hero.png";
+  const image = seo?.ogImageUrl || "/images/robotic-hand-hero.jpg";
   return { metadataBase: new URL(siteUrl), title: { default: title, template: "%s | LINK-HR" }, description, alternates: { canonical: "/" }, openGraph: { type: "website", locale: "zh_CN", url: siteUrl, siteName: "LINK-HR 邻客咨询", title, description, images: [{ url: image, width: 1200, height: 630, alt: "LINK-HR 邻客咨询" }] }, robots: { index: true, follow: true } };
 }
 

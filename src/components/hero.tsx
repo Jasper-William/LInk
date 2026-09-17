@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { siteCopy } from "@/data/fallback";
 
-export function Hero({ hero = { ...siteCopy.hero, imageUrl: "/images/robotic-hand-hero.png" } }: { hero?: typeof siteCopy.hero & { imageUrl: string } }) {
+export function Hero({ hero = { ...siteCopy.hero, imageUrl: "/images/robotic-hand-hero.jpg" } }: { hero?: typeof siteCopy.hero & { imageUrl: string } }) {
   return (
     <section className="hero">
       <div className="shell hero-grid">

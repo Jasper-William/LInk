@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getContactContent } from "@/sanity/lib/content";
+import { getContactContent } from "@/payload/content";
 
 export async function Footer() {
   const contactInfo = await getContactContent();

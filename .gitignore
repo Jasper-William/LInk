@@ -38,6 +38,10 @@ yarn-error.log*
 # vercel
 .vercel
 
+# local deployment bundles and previous extracted copies
+*.zip
+/LINK-HR-Vercel 2/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

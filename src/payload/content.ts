@@ -19,7 +19,8 @@ async function payloadClient() {
   if (!hasDatabase) return null;
   try {
     return await getPayload({ config });
-  } catch {
+  } catch (error) {
+    console.error("[Payload] 初始化失败，公开页面将使用静态备用内容。", error);
     return null;
   }
 }
@@ -104,7 +105,8 @@ export async function getHomepageData() {
         button: home.ctaButton || siteCopy.cta.button,
       },
     };
-  } catch {
+  } catch (error) {
+    console.error("[Payload] 首页内容读取失败，正在使用静态备用内容。", error);
     return {
       hero: { ...siteCopy.hero, imageUrl: "/images/robotic-hand-hero.jpg" },
       focusIntro: siteCopy.focus,
@@ -142,7 +144,8 @@ export async function getTeamMembers(): Promise<TeamMember[]> {
     }));
 
     return members.length ? members : placeholderTeam;
-  } catch {
+  } catch (error) {
+    console.error("[Payload] 团队内容读取失败，正在使用静态备用内容。", error);
     return placeholderTeam;
   }
 }
@@ -159,7 +162,8 @@ export async function getAboutContent() {
       sectionTitle: result.sectionTitle || undefined,
       paragraphs: result.paragraphs?.map((item) => item.text) || undefined,
     };
-  } catch {
+  } catch (error) {
+    console.error("[Payload] 关于我们读取失败，正在使用静态备用内容。", error);
     return null;
   }
 }
@@ -175,7 +179,8 @@ export async function getContactContent() {
       linkedin: result.linkedin || contactInfo.linkedin,
       cities: result.cities || contactInfo.cities,
     };
-  } catch {
+  } catch (error) {
+    console.error("[Payload] 联系方式读取失败，正在使用静态备用内容。", error);
     return contactInfo;
   }
 }
@@ -190,7 +195,8 @@ export async function getSeoContent() {
       description: result.description || undefined,
       ogImageUrl: mediaURL(result.ogImage),
     };
-  } catch {
+  } catch (error) {
+    console.error("[Payload] SEO 设置读取失败，正在使用静态备用内容。", error);
     return null;
   }
 }

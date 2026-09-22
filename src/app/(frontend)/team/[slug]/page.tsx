@@ -4,7 +4,6 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getTeamMembers } from "@/payload/content";
 
-export async function generateStaticParams() { return (await getTeamMembers()).map(({ slug }) => ({ slug })); }
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params; const member = (await getTeamMembers()).find((item) => item.slug === slug);
   return { title: member ? member.name : "团队成员", robots: member ? undefined : { index: false, follow: false } };

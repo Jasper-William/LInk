@@ -5,11 +5,13 @@
   "type": "module",
   "scripts": {
     "dev": "next dev",
-    "build": "payload generate:types && payload generate:importmap && next build --webpack",
+    "build": "node scripts/migrate-if-configured.mjs && payload generate:types && payload generate:importmap && next build --webpack",
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "payload": "payload",
+    "migrate": "payload migrate",
+    "migrate:status": "payload migrate:status",
     "generate:importmap": "payload generate:importmap",
     "generate:types": "payload generate:types"
   },

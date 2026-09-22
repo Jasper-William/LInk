@@ -32,6 +32,7 @@ export default buildConfig({
   globals: [HomePage, ApproachSettings, AboutPage, ContactSettings, SeoSettings],
   editor: lexicalEditor(),
   db: postgresAdapter({
+    migrationDir: path.resolve(dirname, "src/migrations"),
     pool: {
       connectionString: process.env.DATABASE_URL || "",
     },

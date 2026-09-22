@@ -72,12 +72,15 @@ export default buildConfig({
     supportedLanguages: { zh },
   },
   plugins: [
-    vercelBlobStorage({
-      collections: {
-        media: true,
-      },
-      token: process.env.BLOB_READ_WRITE_TOKEN || "",
-    }),
+   vercelBlobStorage({
+  collections: {
+    media: {
+      disablePayloadAccessControl: true,
+    },
+  },
+  access: "public",
+  token: process.env.BLOB_READ_WRITE_TOKEN || "",
+}),
   ],
   typescript: {
     outputFile: path.resolve(dirname, "src/payload-types.ts"),

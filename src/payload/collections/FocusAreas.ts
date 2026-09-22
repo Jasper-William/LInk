@@ -1,14 +1,14 @@
 import type { CollectionConfig } from "payload";
-import { authenticated, publicRead } from "../access";
+import { isAuthenticated, publicRead } from "../access";
 
 export const FocusAreas: CollectionConfig = {
   slug: "focus-areas",
   labels: { singular: "专注领域", plural: "我们的专注" },
   access: {
     read: publicRead,
-    create: authenticated,
-    update: authenticated,
-    delete: authenticated,
+    create: isAuthenticated,
+    update: isAuthenticated,
+    delete: isAuthenticated,
   },
   admin: {
     group: "内容管理",

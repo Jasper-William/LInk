@@ -1,14 +1,14 @@
 import type { CollectionConfig } from "payload";
-import { authenticated, publicRead } from "../access";
+import { isAuthenticated, publicRead } from "../access";
 
 export const Media: CollectionConfig = {
   slug: "media",
   labels: { singular: "图片", plural: "媒体库" },
   access: {
     read: publicRead,
-    create: authenticated,
-    update: authenticated,
-    delete: authenticated,
+    create: isAuthenticated,
+    update: isAuthenticated,
+    delete: isAuthenticated,
   },
   admin: {
     group: "内容管理",

@@ -18,6 +18,31 @@ import { SeoSettings } from "./src/payload/globals/SeoSettings";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
+
+const toOrigin = (value?: string) => {
+  if (!value) return undefined;
+
+  try {
+    return new URL(value.startsWith("http") ? value : `https://${value}`).origin;
+  } catch {
+    return undefined;
+  }
+};
+
+const siteURL = toOrigin(process.env.NEXT_PUBLIC_SITE_URL) || "http://localhost:3000";
+const allowedOrigins = Array.from(
+  new Set(
+    [
+      siteURL,
+      "https://link-hr.work",
+      "https://www.link-hr.work",
+      toOrigin(process.env.VERCEL_PROJECT_PRODUCTION_URL),
+      toOrigin(process.env.VERCEL_URL),
+      "http://localhost:3000",
+    ].filter((origin): origin is string => Boolean(origin)),
+  ),
+);
+
 export default buildConfig({
   admin: {
     user: Users.slug,
@@ -39,9 +64,9 @@ export default buildConfig({
   }),
   secret: process.env.PAYLOAD_SECRET || "",
   sharp,
-  serverURL: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
-  cors: [process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"],
-  csrf: [process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"],
+  serverURL: siteURL,
+  cors: allowedOrigins,
+  csrf: allowedOrigins,
   i18n: {
     fallbackLanguage: "zh",
     supportedLanguages: { zh },

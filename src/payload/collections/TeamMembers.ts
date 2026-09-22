@@ -1,5 +1,5 @@
 import type { CollectionConfig } from "payload";
-import { authenticated, publicRead } from "../access";
+import { isAuthenticated, publicRead } from "../access";
 
 const slugify = (value: string) =>
   value
@@ -13,9 +13,9 @@ export const TeamMembers: CollectionConfig = {
   labels: { singular: "团队成员", plural: "团队管理" },
   access: {
     read: publicRead,
-    create: authenticated,
-    update: authenticated,
-    delete: authenticated,
+    create: isAuthenticated,
+    update: isAuthenticated,
+    delete: isAuthenticated,
   },
   admin: {
     group: "内容管理",

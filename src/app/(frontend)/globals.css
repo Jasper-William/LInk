@@ -90,7 +90,7 @@ img { max-width: 100%; }
 .team-track { display: grid; grid-auto-flow: column; grid-auto-columns: calc((100% - 72px)/4); gap: 24px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
 .team-track::-webkit-scrollbar { display: none; }
 .team-card { scroll-snap-align: start; }
-.portrait-placeholder { aspect-ratio: 3/4; display: flex; align-items: flex-end; padding: 24px; overflow: hidden; position: relative; background: #d9dcdf; filter: grayscale(1); }
+.portrait-placeholder { aspect-ratio: 3/4; display: flex; align-items: flex-end; padding: 24px; overflow: hidden; position: relative; background: #d9dcdf; filter: none; }
 .portrait-placeholder::before { content: ""; position: absolute; width: 62%; aspect-ratio: 1; border-radius: 50%; left: 19%; top: 16%; background: rgba(255,255,255,.42); box-shadow: 0 190px 0 70px rgba(255,255,255,.32); }
 .portrait-placeholder span { position: relative; z-index: 1; color: #5c6166; font-size: .75rem; letter-spacing: .08em; }
 .tone-2 { background: #c9cdd1; }.tone-3 { background: #e1e3e5; }.tone-4 { background: #bfc4c8; }
